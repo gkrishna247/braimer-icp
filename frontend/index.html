@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection Test UI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Brain Tumor Detection</h1>
+        <form id="uploadForm">
+            <label for="imageInput" class="file-label">Choose an MRI Image</label>
+            <input type="file" id="imageInput" accept="image/*" required>
+            <div class="preview-area">
+                <img id="previewImage" src="#" alt="Preview" style="display:none;" />
+            </div>
+            <button type="submit">Analyze</button>
+        </form>
+        <div id="loading" style="display:none;">Analyzing...</div>
+        <div id="result" class="result"></div>
+    </div>
+    <footer>
+        <span>&copy; 2025 Brain Tumor Detection Test UI</span>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
