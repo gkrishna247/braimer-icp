@@ -18,7 +18,7 @@ sudo yum install python3 -y
 Ubuntu:
 ```
 sudo apt update
-sudo apt install python3 python3-venv python3-pip -y
+sudo apt install python3 python3-venv python3-pip libgl1 -y
 ```
 
 ## 4. Clone/Upload Your Project
