@@ -24,7 +24,13 @@ sudo apt install python3 python3-venv python3-pip -y
 ## 4. Clone/Upload Your Project
 - Use `git clone` or upload files via SCP/SFTP.
 
-## 5. Set Up Python Virtual Environment
+## 5. Set Up Python Virtual Environment (Recommended: Use Provided Script)
+You can use the provided setup script for convenience:
+```
+chmod +x setup_venv.sh
+./setup_venv.sh
+```
+Or do it manually:
 ```
 python3 -m venv venv
 source venv/bin/activate
@@ -32,7 +38,13 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## 6. Run the App
+## 6. Run the App (Recommended: Use Provided Script)
+You can use the provided start script:
+```
+chmod +x start.sh
+./start.sh
+```
+Or run manually:
 ```
 python app.py
 ```
@@ -41,6 +53,19 @@ python app.py
 ```
 nohup python app.py &
 ```
+
+---
+
+## How to Use .sh Files
+1. Make the script executable:
+   ```
+   chmod +x scriptname.sh
+   ```
+2. Run the script:
+   ```
+   ./scriptname.sh
+   ```
+Replace `scriptname.sh` with `setup_venv.sh` or `start.sh` as needed.
 
 ---
 
