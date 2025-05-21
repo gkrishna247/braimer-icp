@@ -1,93 +1,207 @@
+:root {
+    --background-color: #f7fafc;
+    --container-background: #fff;
+    --text-color: #222e3c;
+    --primary-accent-color: #00bfff; /* Deep sky blue */
+    --secondary-accent-color: #4caf50; /* Green, was used for box-shadow before */
+    --button-background-color: #222e3c;
+    --button-text-color: #fff;
+    --button-hover-background-color: #00bfff;
+    --button-hover-text-color: #fff;
+    --file-label-background-color: #00bfff;
+    --file-label-text-color: #fff;
+    --file-label-hover-background-color: #222e3c;
+    --footer-text-color: #888;
+    --shadow-color: rgba(76, 175, 80, 0.10); /* Light green shadow */
+    --image-shadow-color: rgba(0, 0, 0, 0.10);
+    --header-background: transparent; /* Or a specific color if desired */
+}
+
+[data-theme="dark"] {
+    --background-color: #1a202c; /* Dark gray */
+    --container-background: #2d3748; /* Slightly lighter dark gray */
+    --text-color: #e2e8f0; /* Light gray text */
+    --primary-accent-color: #63b3ed; /* Lighter blue for dark mode */
+    --secondary-accent-color: #68d391; /* Lighter green for dark mode */
+    --button-background-color: #63b3ed; /* Lighter blue */
+    --button-text-color: #1a202c; /* Dark text on light buttons */
+    --button-hover-background-color: #4299e1; /* Darker shade of blue for hover */
+    --button-hover-text-color: #1a202c;
+    --file-label-background-color: #63b3ed;
+    --file-label-text-color: #1a202c;
+    --file-label-hover-background-color: #4299e1;
+    --footer-text-color: #a0aec0; /* Lighter gray for footer */
+    --shadow-color: rgba(0, 0, 0, 0.4); /* Darker shadow */
+    --image-shadow-color: rgba(0, 0, 0, 0.3);
+    --header-background: #2d3748; /* Match container for dark mode */
+}
+
 body {
-    background: #f7fafc;
+    background: var(--background-color);
     font-family: 'Roboto', Arial, sans-serif;
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background 0.3s, color 0.3s;
 }
+
+header {
+    background: var(--header-background);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: flex-end; /* Positions button to the right */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for header */
+    transition: background 0.3s;
+}
+
+#themeSwitcherBtn {
+    background: var(--button-background-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+#themeSwitcherBtn:hover {
+    background: var(--button-hover-background-color);
+    color: var(--button-hover-text-color);
+}
+
 .container {
-    background: #fff;
-    max-width: 400px;
-    margin: 60px auto 0 auto;
-    padding: 2rem 2rem 1.5rem 2rem;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(76,175,80,0.10);
+    background: var(--container-background);
+    color: var(--text-color);
+    max-width: 450px; /* Slightly wider for better spacing */
+    margin: 40px auto; /* Adjusted margin */
+    padding: 2rem;
+    border-radius: 12px; /* Softer border radius */
+    box-shadow: 0 6px 18px var(--shadow-color); /* Adjusted shadow */
     text-align: center;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
 }
+
 h1 {
-    color: #222e3c;
-    margin-bottom: 1.5rem;
+    color: var(--text-color); /* Use variable */
+    margin-bottom: 1.75rem; /* Adjusted margin */
+    font-size: 1.8rem; /* Slightly larger */
 }
+
 form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem; /* Increased gap for better separation */
 }
+
 .file-label {
-    background: #00bfff;
-    color: #fff;
-    padding: 0.7rem 1.2rem;
-    border-radius: 6px;
+    background: var(--file-label-background-color);
+    color: var(--file-label-text-color);
+    padding: 0.8rem 1.5rem; /* Increased padding */
+    border-radius: 8px; /* Softer radius */
     cursor: pointer;
     font-weight: 500;
-    margin-bottom: 0.5rem;
     display: inline-block;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
 }
+
 .file-label:hover {
-    background: #222e3c;
+    background: var(--file-label-hover-background-color);
+    color: var(--button-hover-text-color); /* Ensure text color contrasts on hover */
 }
+
 input[type="file"] {
     display: none;
 }
-button {
-    background: #222e3c;
-    color: #fff;
+
+button[type="submit"] { /* More specific selector for the analyze button */
+    background: var(--button-background-color);
+    color: var(--button-text-color);
     border: none;
-    border-radius: 6px;
-    padding: 0.8rem 0;
-    font-size: 1rem;
+    border-radius: 8px; /* Softer radius */
+    padding: 0.9rem 0; /* Increased padding */
+    font-size: 1.1rem; /* Slightly larger font */
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
 }
-button:hover {
-    background: #00bfff;
+
+button[type="submit"]:hover {
+    background: var(--button-hover-background-color);
+    color: var(--button-hover-text-color);
 }
+
 .preview-area {
-    margin: 0.5rem 0 1rem 0;
+    margin: 0.75rem 0 1.25rem 0; /* Adjusted margin */
+    padding: 0.5rem; /* Add some padding around the image */
+    border: 1px dashed var(--primary-accent-color); /* Use accent color for border */
+    border-radius: 10px;
+    min-height: 180px; /* Ensure area has a minimum height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 #previewImage {
     max-width: 100%;
-    max-height: 180px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    max-height: 200px; /* Slightly increased max height */
+    border-radius: 8px; /* Consistent border radius */
+    box-shadow: 0 4px 12px var(--image-shadow-color);
     display: block;
     margin: 0 auto;
 }
+
 #loading {
-    color: #00bfff;
+    color: var(--primary-accent-color); /* Use accent color */
     font-weight: 500;
-    margin-top: 1rem;
-}
-.result {
     margin-top: 1.2rem;
-    font-size: 1.1rem;
-    color: #222e3c;
-    min-height: 1.5em;
 }
+
+.result {
+    margin-top: 1.5rem; /* Increased margin */
+    font-size: 1.1rem;
+    color: var(--text-color); /* Use variable */
+    min-height: 1.5em;
+    padding: 0.5rem;
+    border-radius: 6px;
+    background-color: var(--background-color); /* Subtle background for result */
+}
+
 footer {
     text-align: center;
-    color: #888;
-    margin-top: auto;
-    padding: 1.5rem 0 0.5rem 0;
-    font-size: 0.95rem;
+    color: var(--footer-text-color); /* Use variable */
+    margin-top: auto; /* Pushes footer to the bottom */
+    padding: 2rem 0 1rem 0; /* Increased padding */
+    font-size: 0.9rem; /* Slightly smaller font */
+    background: var(--header-background); /* Consistent background with header */
+    transition: background 0.3s, color 0.3s;
 }
+
 @media (max-width: 500px) {
     .container {
-        padding: 1rem 0.5rem;
-        max-width: 98vw;
+        padding: 1.5rem 1rem; /* Adjusted padding for small screens */
+        margin: 20px auto;
+        max-width: 95vw; /* Ensure it's not too wide */
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+    .file-label, button[type="submit"] {
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+    }
+    #themeSwitcherBtn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+    header {
+        padding: 0.5rem;
+    }
+    footer {
+        padding: 1.5rem 0 0.5rem 0;
     }
 }
